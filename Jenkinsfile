@@ -19,14 +19,9 @@ pipeline {
     stages {
         stage('print the version') {
             steps {
-                echo "Application version: ${params.appversion}"
-            }
-        }
-        stage('Deploy') {
-            steps {
                 script {
-                    build job: 'backend-deployment', parameters: [string(name: 'appVersion', value: 'stage')], propagate: false
-              }
+                    echo "Application version: ${params.appversion}"
+                }
             }
         }
     }
